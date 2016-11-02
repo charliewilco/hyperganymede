@@ -25,9 +25,8 @@ exports.decorateConfig = config => Object.assign({}, config, {
   },
   termCSS: `
     ${config.termCSS},
-    .cursor-node {
-      opacity: 0.8 !important;
-    }
+    .cursor-node { opacity: 0.8 !important; }
+    x-screen a { color: ${ansiGroups.bright.magenta}; }
   `,
   css: `
     ${config.css},
