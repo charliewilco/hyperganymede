@@ -26,6 +26,14 @@
     ]
   },
   "dependencies": {
-    "ganymede": "1.0.0"
-  }
+    "ganymede": "1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlespeters/hyperganymede.git"
+  },
+  "bugs": {
+    "url": "https://github.com/charlespeters/hyperganymede/issues"
+  },
+  "homepage": "https://github.com/charlespeters/hyperganymede#readme"
 }
