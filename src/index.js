@@ -1,9 +1,10 @@
 import { uiGroups, ansiGroups } from 'ganymede'
+import chroma from 'chroma-js'
 
 exports.decorateConfig = config => Object.assign({}, config, {
   cursorColor: uiGroups.userCurrentState,
   foregroundColor: uiGroups.foreground,
-  backgroundColor: uiGroups.background,
+  backgroundColor: chroma(uiGroups.background).alpha(0.5),
   borderColor: uiGroups.background,
   colors: {
     black: ansiGroups.normal.black,
@@ -34,11 +35,14 @@ exports.decorateConfig = config => Object.assign({}, config, {
       margin-left: 0 !important;
     }
     .tab_tab {
-      background-color: ${uiGroups.gray2} !important;
+      background-color: ${uiGroups.gray3};
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: transparent;
     }
     .tab_tab.tab_active {
       background-color: ${uiGroups.background} !important;
-      border: none !important;
+      border-bottom-color: ${ansiGroups.bright.yellow};
     }
     .tab_tab.tab_active::before {
       border: none !important;
@@ -53,8 +57,8 @@ exports.decorateConfig = config => Object.assign({}, config, {
     }
     .tabs_title,
     .tab_textInner {
-      font-size: 14px !important;
-      font-weight: bold !important;
+      font-size: 14px;
+      font-weight: bold;
     }
     .splitpane_divider {
       background: ${uiGroups.gray2} !important;
@@ -62,3 +66,5 @@ exports.decorateConfig = config => Object.assign({}, config, {
     }
   `
 })
+
+exports.onWindow = browserWindow => browserWindow.setVibrancy('dark')
