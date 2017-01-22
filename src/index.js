@@ -1,11 +1,14 @@
 import { uiGroups, ansiGroups } from 'ganymede'
-import chroma from 'chroma-js'
 
-exports.decorateConfig = config => Object.assign({}, config, {
+// rgba(9,55,80, 1) = ui.background
+
+const AlphaBkg = 'rgba(9, 55, 80, 0.625)'
+
+exports.onWindow = browserWindow => browserWindow.setVibrancy('dark')
+exports.decorateConfig = (config) => Object.assign({}, config, {
   cursorColor: uiGroups.userCurrentState,
   foregroundColor: uiGroups.foreground,
-  backgroundColor: chroma(uiGroups.background).alpha(0.5),
-  borderColor: uiGroups.background,
+  backgroundColor: AlphaBkg,
   colors: {
     black: ansiGroups.normal.black,
     red: ansiGroups.normal.red,
@@ -35,22 +38,24 @@ exports.decorateConfig = config => Object.assign({}, config, {
       margin-left: 0 !important;
     }
     .tab_tab {
-      background-color: ${uiGroups.gray3};
+      background-color: ${uiGroups.gray1};
+      color: ${uiGroups.gray5};
       border-bottom-width: 2px;
       border-bottom-style: solid;
       border-bottom-color: transparent;
     }
     .tab_tab.tab_active {
-      background-color: ${uiGroups.background} !important;
-      border-bottom-color: ${ansiGroups.bright.yellow};
+      background-color: transparent !important;
+      border-bottom-color: ${uiGroups.userCurrentState} !important;
     }
     .tab_tab.tab_active::before {
       border: none !important;
     }
     .tab_text {
       border: none !important;
-      color: ${uiGroups.background} !important;
+      color: ${uiGroups.gray2} !important;
     }
+
     .tabs_title,
     .tab_textActive {
       color: ${uiGroups.userCurrentState} !important;
@@ -66,5 +71,3 @@ exports.decorateConfig = config => Object.assign({}, config, {
     }
   `
 })
-
-exports.onWindow = browserWindow => browserWindow.setVibrancy('dark')

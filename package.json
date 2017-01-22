@@ -26,7 +26,6 @@
     ]
   },
   "dependencies": {
-    "chroma-js": "1.2.1",
     "ganymede": "1.1.0"
   },
   "repository": {
