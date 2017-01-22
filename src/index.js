@@ -29,7 +29,6 @@ exports.decorateConfig = (config) => Object.assign({}, config, {
   },
   termCSS: `
     ${config.termCSS},
-    .cursor-node { opacity: 0.8 !important; }
     x-screen a { color: ${ansiGroups.bright.magenta}; }
   `,
   css: `
@@ -38,14 +37,13 @@ exports.decorateConfig = (config) => Object.assign({}, config, {
       margin-left: 0 !important;
     }
     .tab_tab {
-      background-color: ${uiGroups.gray1};
+      background-color: transparent !import;
       color: ${uiGroups.gray5};
       border-bottom-width: 2px;
       border-bottom-style: solid;
-      border-bottom-color: transparent;
+      border-bottom-color: ${uiGroups.gray1};
     }
     .tab_tab.tab_active {
-      background-color: transparent !important;
       border-bottom-color: ${uiGroups.userCurrentState} !important;
     }
     .tab_tab.tab_active::before {
@@ -66,7 +64,7 @@ exports.decorateConfig = (config) => Object.assign({}, config, {
       font-weight: bold;
     }
     .splitpane_divider {
-      background: ${uiGroups.gray2} !important;
+      background: transparent !important;
       border-color: ${uiGroups.background} !important;
     }
   `
