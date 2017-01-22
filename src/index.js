@@ -2,7 +2,7 @@ import { uiGroups, ansiGroups } from 'ganymede'
 
 // rgba(9,55,80, 1) = ui.background
 
-const AlphaBkg = 'rgba(9, 55, 80, 0.625)'
+const AlphaBkg = 'rgba(9, 55, 80, 0.75)'
 
 exports.onWindow = browserWindow => browserWindow.setVibrancy('dark')
 exports.decorateConfig = (config) => Object.assign({}, config, {
